@@ -12,11 +12,9 @@ package project;
 import java.util.Random;
 import java.util.Scanner;
 public class BlackjackHand {
-	//declaration part
 	private Deck deck;
     private int balance;
 
-  //declaration part
     public BlackjackHand() {
         super();
         this.deck = new Deck();
@@ -113,15 +111,14 @@ public class BlackjackHand {
             System.out.println("The dealer has one " + oneCardFromDealerHand.getTitle() + " of " + oneCardFromDealerHand.getType() + " = " + oneCardFromDealerHand.getValue());
             System.out.println("What next?");
             String userChoice = "";
-            try (Scanner scanner = new Scanner(System.in)) {
-				do {
-				    System.out.println("Type 'Hit' or 'Stand':");
-				    userChoice = scanner.nextLine();
-				    userChoice = userChoice.trim().toLowerCase();
-				    if (!(userChoice.equals("hit") || userChoice.equals("stand")))
-				        System.out.println("Wrong input.");
-				} while (!(userChoice.equals("hit") || userChoice.equals("stand")));
-			}
+            Scanner scanner = new Scanner(System.in);
+            do {
+                System.out.println("Type 'Hit' or 'Stand':");
+                userChoice = scanner.nextLine();
+                userChoice = userChoice.trim().toLowerCase();
+                if (!(userChoice.equals("hit") || userChoice.equals("stand")))
+                    System.out.println("Wrong input.");
+            } while (!(userChoice.equals("hit") || userChoice.equals("stand")));
             // sc.close();
             if (userChoice.equals("hit")) {
                 Card newCard = this.deck.hit();
@@ -144,3 +141,4 @@ public class BlackjackHand {
         }
     }
 }
+
